@@ -1,5 +1,5 @@
 .app-wrapper {
-  background-color: #d9dad8;
+  background-color: #f2f2f2;
   margin: 0 auto;
   display: grid;
   width: 1200px;
@@ -13,26 +13,4 @@
   grid-template-columns: 2fr 10fr;
   /* отступы */
   gap: 10px;
-}
-
-.header {
-  grid-area: header;
-  background-color: #dff7f8;
-}
-.header img{
-  width: 40px;
-}
-
-.nav{
-  grid-area: nav;
-  background-color: #f7f8df;
-}
-
-.content{
-  grid-area: cont;
-  background-color: #f8dff7;
-}
-
-.content img{
-  width: 100%;
 }

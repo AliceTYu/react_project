@@ -1,0 +1,30 @@
+.nav {
+    grid-area: nav;
+    background-color: #f7f8df;
+}
+
+.item{
+    font-family: fangsong;
+    padding: 0px 10px;
+    font-size: 26px;
+    margin: 0px 0px 10px 0px;
+}
+
+.item:first-child{
+    padding-top: 10px;
+}
+
+.item a{
+    color: #000;
+    text-decoration: none;
+}
+
+.item a:hover{
+    color: #2ab5b6;
+    text-decoration: underline;
+}
+
+.item.active a {
+    color: #551a5e;
+    text-decoration: underline;
+}

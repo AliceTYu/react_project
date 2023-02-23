@@ -1,0 +1,13 @@
+.content {
+    grid-area: cont;
+    background-color: #f8dff7;
+
+    padding: 10px 10px;
+    font-family: fangsong;
+    font-size: 20px;
+}
+
+.content img {
+    /* width: 800px; */
+}
+
