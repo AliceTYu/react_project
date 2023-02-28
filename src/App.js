@@ -11,7 +11,6 @@ import Set from "./components/Set/Set";
 
 function App(props) {
   return (
-    <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Navbar />
@@ -19,7 +18,7 @@ function App(props) {
           <Routes>
             <Route
               path="/profile"
-              element={<Profile state={props.state.profilePage} />}
+              element={<Profile state={props.state.profilePage} addPost={props.addPost}/>}
             />
             <Route
               path="/dialogs/*"
@@ -35,7 +34,6 @@ function App(props) {
           </Routes>
         </div>
       </div>
-    </BrowserRouter>
   );
 }
 

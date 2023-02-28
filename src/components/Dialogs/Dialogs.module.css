@@ -9,8 +9,18 @@
     
 }
 
-
 .messages {
     background-color: #dcbada;
     border-radius: 15px;
+}
+
+.sendMessage{
+    padding: 10px;
+    display: flex;
+    direction: column;
+    justify-content: center;
+}
+
+.button_send{
+    margin-left: 10px;
 }
