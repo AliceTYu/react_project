@@ -1,0 +1,36 @@
+.dialog {
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 10px;
+
+    background-color: #dcbada;
+    border-radius: 10px;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+}
+
+.dialog img{
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.dialog a{
+    text-decoration: none;
+}
+
+.dialog a:hover{
+    color: #fff;
+}
+
+/* .dialog a.active{
+    background-color: #dcbada;
+} */
+
+
+.dialog:first-child{
+    margin-top: 0;
+}

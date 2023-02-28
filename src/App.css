@@ -4,13 +4,22 @@
   display: grid;
   width: 1200px;
 
-  grid-template-areas: 
-  "header header"
-  "nav cont";
+  grid-template-areas:
+    "header header"
+    "nav cont";
   /* сколько строк - 2 строки, одна 60px, вторая 1fr(часть остаточного пространства) */
   grid-template-rows: 60px 1fr;
   /* сколько колонок - 2 колонки, одна 2fr, вторая 10fr */
   grid-template-columns: 2fr 10fr;
   /* отступы */
   gap: 10px;
+}
+
+.app-wrappet-content {
+  grid-area: cont;
+  background-color: #f8dff7;
+
+  /* padding: 10px; */
+  font-family: fangsong;
+  font-size: 20px;
 }

@@ -1,12 +1,13 @@
 .nav {
     grid-area: nav;
     background-color: #f7f8df;
+
+    padding: 10px 20px;
+    font-family: fangsong;
+    font-size: 26px;
 }
 
 .item{
-    font-family: fangsong;
-    padding: 0px 10px;
-    font-size: 26px;
     margin: 0px 0px 10px 0px;
 }
 
@@ -21,10 +22,12 @@
 
 .item a:hover{
     color: #2ab5b6;
-    text-decoration: underline;
 }
 
-.item.active a {
-    color: #551a5e;
-    text-decoration: underline;
+.item a.active{
+    background-color: #dcbada;
+    padding: 10px;
+    margin-left: -10px;
+    border-radius: 10px;
+    color: #9e0694;
 }
