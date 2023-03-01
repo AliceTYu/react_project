@@ -1,6 +1,6 @@
 .nav {
     grid-area: nav;
-    background-color: #f7f8df;
+    /* background-color: #f7f8df; */
 
     padding: 10px 20px;
     font-family: fangsong;

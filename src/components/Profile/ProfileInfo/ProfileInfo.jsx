@@ -4,7 +4,7 @@ import s from "./ProfileInfo.module.css";
 const ProfileInfo = () => {
   return (
     <div>
-      <div>
+      <div className={s.fon}>
         <img src="https://s3.amazonaws.com/sitebuilderreport-assets/stock_photos/files/000/039/995/small/book-pages-as-a-heart_373x_2x.jpg?1513133821" />
       </div>
       <div className={s.descriptionBlock}>
