@@ -8,6 +8,7 @@ import {Route, Routes } from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Set from "./components/Set/Set";
+import Friend from "./components/Friends/Friend";
 
 function App(props) {
   return (
@@ -40,6 +41,7 @@ function App(props) {
           <Route path="/news" element={<News />} />
           <Route path="/music" element={<Music />} />
           <Route path="/settings" element={<Set />} />
+          <Route path="/friend" element={<Friend />} />
         </Routes>
       </div>
     </div>

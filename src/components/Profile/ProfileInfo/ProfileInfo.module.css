@@ -6,4 +6,27 @@
 
 .descriptionBlock{
     padding: 10px;
+    display: flex;
+    direction: column;
+    align-items: center;
+}
+
+.descriptionBlock img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50px;
+}
+
+.description_img{
+    margin-top: -80px;
+}
+
+.description{
+    margin-left: 20px;
+    font-size: 24px;   
+}
+
+.description_name{
+    font-size: 28px;
+    font-weight: 600;
 }
