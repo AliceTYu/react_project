@@ -1,28 +1,36 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../../redux/state";
+import { addMessageCreator, updateNewMessageTextCreator } from "../../redux/dialogs-reducer";
 import DialogItem from "./DialogItem/DialogItem";
 import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
-  let dialogsElements = props.state.dialogs.map((d) => (
+  let state = props.store.getState().dialogsPage;
+  
+  let dialogsElements = state.dialogs.map((d) => (
     <DialogItem name={d.name} id={d.id} image={d.image} />
   ));
 
-  let messagesElements = props.state.messages.map((m) => (
+  let messagesElements = state.messages.map((m) => (
     <Message message={m.message} image={m.image} />
   ));
 
-  let newSend = React.createRef();
+
+  let newMessageText=state.newMessageText;
+
+  // let newSend = React.createRef();
 
   let addMessage = () => {
-    props.dispatch(addMessageActionCreator());
+    props.store.dispatch(addMessageCreator());
   };
 
-  let onMessageChange = () => {
-    let text = newSend.current.value;
-    props.dispatch(updateNewMessageTextActionCreator(text));
+  let onMessageChange = (e) => {
+    let text = e.target.value;
+    props.store.dispatch(updateNewMessageTextCreator(text))
+
+    // let text = newSend.current.value;
+    // props.dispatch(updateNewMessageTextCreator(text));
   };
 
   return (
@@ -33,9 +41,10 @@ const Dialogs = (props) => {
         <div className={s.sendMessage}>
           <div>
             <textarea
-              ref={newSend}
+              placeholder="Введите сообщение"
+              // ref={newSend}
               onChange={onMessageChange}
-              value={props.newMessageText}
+              value={newMessageText}
             />
           </div>
           <div className={s.button_send}>
