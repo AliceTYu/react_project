@@ -1,13 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { addMessageCreator, updateNewMessageTextCreator } from "../../redux/dialogs-reducer";
 import DialogItem from "./DialogItem/DialogItem";
 import s from "./Dialogs.module.css";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
-  let state = props.store.getState().dialogsPage;
-  
+  let state = props.dialogsPage;
+
   let dialogsElements = state.dialogs.map((d) => (
     <DialogItem name={d.name} id={d.id} image={d.image} />
   ));
@@ -16,21 +14,15 @@ const Dialogs = (props) => {
     <Message message={m.message} image={m.image} />
   ));
 
-
-  let newMessageText=state.newMessageText;
-
-  // let newSend = React.createRef();
+  let newMessageText = state.newMessageText;
 
   let addMessage = () => {
-    props.store.dispatch(addMessageCreator());
+    props.addMessage();
   };
 
   let onMessageChange = (e) => {
     let text = e.target.value;
-    props.store.dispatch(updateNewMessageTextCreator(text))
-
-    // let text = newSend.current.value;
-    // props.dispatch(updateNewMessageTextCreator(text));
+    props.onMessageChange(text);
   };
 
   return (
@@ -42,7 +34,6 @@ const Dialogs = (props) => {
           <div>
             <textarea
               placeholder="Введите сообщение"
-              // ref={newSend}
               onChange={onMessageChange}
               value={newMessageText}
             />
