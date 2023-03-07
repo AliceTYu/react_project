@@ -5,10 +5,10 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import store from "./redux/redux-store";
-import {Provider} from "./StoreContext";
+import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-let rerenderEntireTree = (state) => {
+// let rerenderEntireTree = (state) => {
   root.render(
     <React.StrictMode>
       <BrowserRouter>
@@ -18,13 +18,8 @@ let rerenderEntireTree = (state) => {
       </BrowserRouter>
     </React.StrictMode>
   );
-};
+// };
 
-rerenderEntireTree(store.getState());
-
-store.subscribe(() => {
-  let state = store.getState();
-  rerenderEntireTree(state);
-});
+// rerenderEntireTree();
 
 reportWebVitals();

@@ -2,7 +2,7 @@ const ADD_MESSAGE = "ADD-MESSAGE";
 const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
 const AVA_1 =
   "https://ulibky.ru/wp-content/uploads/2019/10/avatarki_dlya_vatsap_dlya_devushek_42_28061027.jpg";
-  const AVA_2 =
+const AVA_2 =
   "https://s3.amazonaws.com/sitebuilderreport-assets/stock_photos/files/000/002/816/small/cats-eye-closeup_373x_2x.jpg?1519320632";
 const AVA_3 =
   "https://s3.amazonaws.com/sitebuilderreport-assets/stock_photos/files/000/040/781/small/cathedral_373x_2x.jpg?1513194155";
@@ -38,42 +38,46 @@ let initialState = {
     {
       id: 1,
       message: "Hi",
-      image:AVA_2,
+      image: AVA_2,
     },
     {
       id: 2,
       message: "How are you?",
-      image:AVA_2,
+      image: AVA_2,
     },
     {
       id: 3,
       message: "Cool",
-      image:AVA_2,
+      image: AVA_2,
     },
     {
       id: 4,
       message: "Wow",
-      image:AVA_2,
+      image: AVA_2,
     },
   ],
   newMessageText: "",
-}
+};
 
 const dialogsReducer = (state = initialState, action) => {
-  switch(action.type){
-    case ADD_MESSAGE:
-      let newMessage = {
-        id: 5,
-        message: state.newMessageText,
-        image: AVA_1,
+  switch (action.type) {
+    case ADD_MESSAGE: {
+      return {
+        ...state,
+        messages: [
+          ...state.messages,
+          { id: 5, message: state.newMessageText, image: AVA_1 },
+        ],
+        newMessageText: "",
       };
-      state.messages.push(newMessage);
-      state.newMessageText = "";
-      return state;
-    case UPDATE_NEW_MESSAGE_TEXT:
-      state.newMessageText = action.newMess;
-      return state;
-    default: 
+    }
+    case UPDATE_NEW_MESSAGE_TEXT: {
+      return {
+        ...state,
+        newMessageText: action.newMess,
+      };
+    }
+    default:
       return state;
   }
 };
