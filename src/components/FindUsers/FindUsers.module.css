@@ -1,0 +1,43 @@
+.userPart{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.part{
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.leftPart{
+    width: 100px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.rightPart{
+    display: flex;
+    flex: 1 0 auto;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+
+.partName{
+    margin-bottom: 20px;
+}
+
+.partCountry{
+    margin-bottom: 20px;
+}
+
+
+.partLocation{
+    text-align: end;
+}
+
+.photo{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
