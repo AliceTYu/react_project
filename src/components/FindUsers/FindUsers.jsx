@@ -1,6 +1,7 @@
 import React from "react";
 import s from "./FindUsers.module.css";
 import userPhoto from "../../img/ava_5.jpg";
+import { NavLink } from "react-router-dom";
 
 let FindUsers = (props) => {
   let padesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -35,11 +36,13 @@ let FindUsers = (props) => {
         <div className={s.part} key={u.id}>
           <div className={s.leftPart}>
             <div>
-              <img
-                src={u.photos.small != null ? u.photos.small : userPhoto}
-                className={s.photo}
-                alt="error"
-              />
+              <NavLink to={'/profile/' + u.id}>
+                <img
+                  src={u.photos.small != null ? u.photos.small : userPhoto}
+                  className={s.photo}
+                  alt="error"
+                />
+              </NavLink>
             </div>
             <div>
               {u.followed ? (

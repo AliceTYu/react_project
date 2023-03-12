@@ -29,4 +29,9 @@
 .description_name{
     font-size: 28px;
     font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.description_about{
+    margin-bottom: 5px; 
 }
