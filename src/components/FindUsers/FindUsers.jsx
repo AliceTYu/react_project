@@ -2,6 +2,7 @@ import React from "react";
 import s from "./FindUsers.module.css";
 import userPhoto from "../../img/ava_5.jpg";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 let FindUsers = (props) => {
   let padesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -36,7 +37,7 @@ let FindUsers = (props) => {
         <div className={s.part} key={u.id}>
           <div className={s.leftPart}>
             <div>
-              <NavLink to={'/profile/' + u.id}>
+              <NavLink to={"/profile/" + u.id}>
                 <img
                   src={u.photos.small != null ? u.photos.small : userPhoto}
                   className={s.photo}
@@ -48,7 +49,21 @@ let FindUsers = (props) => {
               {u.followed ? (
                 <button
                   onClick={() => {
-                    props.unfollow(u.id);
+                    axios
+                      .delete(
+                        `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                        {
+                          withCredentials: true,
+                          headers: {
+                            "API-KEY": "27e4675c-f804-4a6f-9041-626042cb1409"
+                          } 
+                        }
+                      )
+                      .then((response) => {
+                        if (response.data.resultCode === 0) {
+                          props.unfollow(u.id);
+                        }
+                      });
                   }}
                 >
                   UNFOLLOW
@@ -56,7 +71,21 @@ let FindUsers = (props) => {
               ) : (
                 <button
                   onClick={() => {
-                    props.follow(u.id);
+                    axios
+                      .post(
+                        `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
+                        {
+                          withCredentials: true,
+                          headers: {
+                            "API-KEY": "27e4675c-f804-4a6f-9041-626042cb1409"
+                          } 
+                        }
+                      )
+                      .then((response) => {
+                        if (response.data.resultCode === 0) {
+                          props.follow(u.id);
+                        }
+                      });
                   }}
                 >
                   FOLLOW
