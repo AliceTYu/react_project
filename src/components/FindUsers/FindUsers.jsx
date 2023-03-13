@@ -2,7 +2,6 @@ import React from "react";
 import s from "./FindUsers.module.css";
 import userPhoto from "../../img/ava_5.jpg";
 import { NavLink } from "react-router-dom";
-import axios from "axios";
 import { followAPI, unFollowAPI } from "../../api/api";
 
 let FindUsers = (props) => {
@@ -48,25 +47,29 @@ let FindUsers = (props) => {
             </div>
             <div>
               {u.followed ? (
-                <button
+                <button disabled={props.followingInProgress.some(id => id === u.id)}
                   onClick={() => {
+                    props.toggleIsFollowingProgress(true, u.id)
                     unFollowAPI.unFollow(u.id).then((data) => {
-                        if (data.resultCode === 0) {
-                          props.unfollow(u.id);
-                        }
-                      });
+                      if (data.resultCode === 0) {
+                        props.unfollow(u.id);
+                      }
+                      props.toggleIsFollowingProgress(false, u.id);
+                    });
                   }}
                 >
                   UNFOLLOW
                 </button>
               ) : (
-                <button
+                <button disabled={props.followingInProgress.some(id => id === u.id)}
                   onClick={() => {
+                    props.toggleIsFollowingProgress(true, u.id)
                     followAPI.follow(u.id).then((data) => {
-                        if (data.resultCode === 0) {
-                          props.follow(u.id);
-                        }
-                      });
+                      if (data.resultCode === 0) {
+                        props.follow(u.id);
+                      }
+                      props.toggleIsFollowingProgress(false, u.id)
+                    });
                   }}
                 >
                   FOLLOW
